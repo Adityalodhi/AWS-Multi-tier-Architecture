@@ -1,0 +1,27 @@
+first create a file for provider ==> provider.tf
+
+create vpc ==> vpc.tf
+
+generate elastic ip ==>eip.tf
+
+create internet gateway for vpc ==> internet-gateway.tf
+
+create the subnet for each tiers ie. ==>web-sub.tf,app-sub.tf,db-sub.tf
+
+create a nat gateway which will connect to web tier ==>nat-gw.tf
+
+create a public and private route table for vpc==> public-route.tf, private-route.tf
+
+
+create a security group for application load balancer for app and web tier ==>alb-app-sg.tf,alb-web-sg.tf
+
+create a security group for auto scalling group for web and app tier ==>asg-app-sg.tf,asg-web-sg.tf
+
+create a security group for database ==>db-sg.tf
+
+create a application Load balancer for app and web tier ==> alb-app.tf,alb-web.tf
+
+create a launch template for ec2 instance for web and app tier ==>app-launch-temp.tf, web-launch-temp.tf
+
+create a target group for the Launch Template ==> tg-app.tf , tg-web.tf
+

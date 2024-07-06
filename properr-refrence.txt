@@ -1,0 +1,49 @@
+create a provider File ==> provider.tf
+create a key pair for the launch temp ==>generate-key-pair.tf
+command to generate rsa keys : (ssh-keygen -t rsa -b 2048 -f ./id_rsa)
+
+
+step 1 create VPC:
+
+create the VPC ==> vpc.tf 
+create the subnet for each   tier (web,app,data) ==> app-sub.tf , app-sub.tf , app-sub.tf
+create internet Gateway ==> internet-gateway.tf
+create NAT GAteway (after eip) ==>  eip.tf -->nat-gw.tf 
+create a route tables public and private subnet ==>  private-route.tf , public-route.tf
+
+
+step 2 web Tier  : 
+
+create security group for ALB and ASG ==>  asg-web-sg.tf , alb-web-sg.tf
+create a user data for web ==> user-data.sh
+create a launch template for alb ==> launch-temp-web.tf
+create a ASG for web ==> asg-web.tf
+create a ALB for web ==>  alb-web.tf
+create a Target Group for ALB web ==>  tg-web.tf
+
+
+step 3 App Tier :
+
+create security group for ALB and ASG ==> asg-app-sg.tf , alb-app-sg.tf 
+create a launch template for alb ==> launch-temp-app.tf
+create a ASG for web ==> asg-app.tf
+create a ALB for web ==> alb-app.tf
+create a Target Group for ALB web ==> tg-app.tf
+
+
+Step 4 Database tier :
+
+create a subnet group for db ==> db-subnet-gr.tf
+create a security group for DB ==> db-sg.tf
+create a RDS Database to store file ==> rds.tf
+
+
+Step 5 :
+
+create a output file to give the DNS link for the ALB load balancer ==> output.tf
+
+
+step 6 (Optional) : 
+
+create a backend to store the tf file on s3 ==> backend.tf
+
